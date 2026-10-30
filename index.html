@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrendyWeave Weather Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Weather intelligence</p>
+          <h1>TrendyWeave Forecast</h1>
+        </div>
+        <div class="search-wrap">
+          <input id="cityInput" type="text" placeholder="Search city..." aria-label="Search city" />
+          <button id="searchBtn" class="primary-btn">Search</button>
+        </div>
+      </header>
+
+      <nav class="quick-links" aria-label="Popular locations">
+        <button class="city-pill" data-city="New York">New York</button>
+        <button class="city-pill" data-city="London">London</button>
+        <button class="city-pill" data-city="Tokyo">Tokyo</button>
+        <button class="city-pill" data-city="Dubai">Dubai</button>
+        <button class="city-pill" data-city="Dhaka">Dhaka</button>
+      </nav>
+
+      <main class="content">
+        <section class="banner card">
+          <div class="weather-summary">
+            <div>
+              <p id="locationName" class="location-name">Loading…</p>
+              <p id="currentDate" class="current-date">—</p>
+            </div>
+            <div class="current-temp-wrap">
+              <div id="weatherEmoji" class="weather-emoji" aria-hidden="true">☀️</div>
+              <div>
+                <p id="currentTemp" class="current-temp">--°</p>
+                <p id="weatherCondition" class="weather-condition">Fetching weather…</p>
+              </div>
+            </div>
+          </div>
+          <div class="highlights" id="highlights">
+            <div class="stat-box">
+              <span>Feels like</span>
+              <strong id="feelsLike">--°</strong>
+            </div>
+            <div class="stat-box">
+              <span>Humidity</span>
+              <strong id="humidity">--%</strong>
+            </div>
+            <div class="stat-box">
+              <span>Wind</span>
+              <strong id="windSpeed">-- km/h</strong>
+            </div>
+            <div class="stat-box">
+              <span>Rain</span>
+              <strong id="rainChance">-- mm</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="forecast-grid">
+          <div class="card">
+            <div class="section-heading">
+              <h2>Today’s overview</h2>
+            </div>
+            <div id="hourlyForecast" class="hourly-forecast"></div>
+          </div>
+
+          <div class="card">
+            <div class="section-heading">
+              <h2>7-day forecast</h2>
+            </div>
+            <div id="dailyForecast" class="daily-forecast"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="errorBanner" class="error-banner hidden" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
